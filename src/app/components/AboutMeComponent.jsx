@@ -12,10 +12,12 @@ export default function Portfolio() {
     },
     {
       id: 2,
-      title: "Building Magical Developer Experiences",
-      description: "Our design has had impact across a strong combination between designer-developer relationships and cross-team collaboration. Here we dive a bit about how we each approach our crafts.",
-      image: "/api/placeholder/400/225",
-      category: "development"
+      title: "Invent for the Planet 2024",
+      description: "We joined the global innovation challenge Invent for the Planet 2024 and won first place at our school with a creative and impactful solution.",
+      image: "/IFTP.mp4",
+      category: "development",
+      youtubeId: "UmnfDSnSxj0",
+      videoUrl: "https://youtu.be/UmnfDSnSxj0"
     },
     {
       id: 3,
@@ -28,7 +30,7 @@ export default function Portfolio() {
     id: 4,
     title: 'National Geographic "Slingshot Challenge" | ¿A quién le importa el agua?',
     description: "A look at National Geographic's Slingshot Challenge, where young people propose creative solutions to environmental problems.",
-    image: "https://img.youtube.com/vi/xosNPL5OVVM/hqdefault.jpg", 
+    image: "/NationalGeographic.mp4", 
     category: "art",
     hasTwitter: true,
     tweetText: "The blue glow of a developer's workspace that shows the passion for creating & unique features. That's a short look at some of my favorites 💙",
@@ -61,7 +63,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="bg-amber-50 min-h-screen max-w-4xl mx-auto font-sans">
+    <div className="min-h-screen max-w-4xl mx-auto font-sans">
       {/* Hero Section */}
       <header className="p-6 pt-10 text-center">
         <div className="mb-8 mx-auto max-w-lg">
@@ -91,11 +93,23 @@ export default function Portfolio() {
                 <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-105"
-                      />
+                      {project.image.endsWith('.mp4') ? (
+                        <video
+                          src={project.image}
+                          loop
+                          autoPlay
+                          muted
+                          playsInline
+                          className="w-full h-48 object-cover bg-black"
+                          poster="/api/placeholder/400/225"
+                        />
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-105"
+                        />
+                      )}
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
                         {/* YouTube logo SVG */}
                         <svg className="w-16 h-16 text-red-600 mb-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,11 +120,23 @@ export default function Portfolio() {
                       </div>
                     </div>
                   ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-48 object-cover"
-                    />
+                    project.image.endsWith('.mp4') ? (
+                      <video
+                        src={project.image}
+                        loop
+                        autoPlay
+                        muted
+                        playsInline
+                        className="w-full h-48 object-cover bg-black"
+                        poster="/api/placeholder/400/225"
+                      />
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-48 object-cover"
+                      />
+                    )
                   )}
                   <div className="p-4">
                     <h3 className="text-lg font-medium mb-2">{project.title}</h3>
@@ -164,11 +190,23 @@ export default function Portfolio() {
                 <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-105"
-                      />
+                      {project.image.endsWith('.mp4') ? (
+                        <video
+                          src={project.image}
+                          loop
+                          autoPlay
+                          muted
+                          playsInline
+                          className="w-full h-48 object-cover bg-black"
+                          poster="/api/placeholder/400/225"
+                        />
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-105"
+                        />
+                      )}
                       <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
                         {/* YouTube logo SVG */}
                         <svg className="w-16 h-16 text-red-600 mb-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -2,7 +2,7 @@
 @import './dancing-script.css';
 
 :root {
-  --background: #ffffff;
+  --background: #fffae5; 
   --foreground: #171717;
 }
 
@@ -15,7 +15,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ededed;
+    --background: #fffae5;
     --foreground: #171717;
   }
 }
