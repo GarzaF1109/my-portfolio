@@ -19,14 +19,14 @@ export default function Portfolio() {
     },
     {
       id: 3,
-      title: "Storytelling Talk",
-      description: "In this talk, I explain the frameworks we've created over the years that just work.",
-      image: "/api/placeholder/400/225",
+      title: "The Beginning of a New Journey",
+      description: "I recently started my university studies at Tecnológico de Software, pursuing a degree in Software Development — the first step toward building meaningful digital solutions.",
+      image: "/University.webp",
       category: "talks"
     },
     {
     id: 4,
-    title: "National Geographic “Slingshot Challenge” | ¿A quién le importa el agua?",
+    title: 'National Geographic "Slingshot Challenge" | ¿A quién le importa el agua?',
     description: "A look at National Geographic's Slingshot Challenge, where young people propose creative solutions to environmental problems.",
     image: "https://img.youtube.com/vi/xosNPL5OVVM/hqdefault.jpg", 
     category: "art",
@@ -44,10 +44,10 @@ export default function Portfolio() {
     },
     {
       id: 6,
-      title: "Startup-ish NYC",
-      description: "I once recreated comedy... but more comedy than advertised. So much enjoyment that adds happiness.",
-      image: "/api/placeholder/400/225",
-      category: "art"
+      title: "FIRST LEGO League Yucatán Robotics Champion",
+      description: "Our team proudly secured the championship title at the FIRST LEGO League regional competition in Yucatán, showcasing innovation, teamwork, and engineering excellence.",
+      image: "/Robotics.JPG",
+      category: "achievement"
     },
     {
       id: 7,
@@ -63,13 +63,15 @@ export default function Portfolio() {
   return (
     <div className="bg-amber-50 min-h-screen max-w-4xl mx-auto font-sans">
       {/* Hero Section */}
-      <header className="p-6 pt-10">
-        <div className="mb-8">
-          <p className="text-gray-700 text-sm mb-4 max-w-lg">
+      <header className="p-6 pt-10 text-center">
+        <div className="mb-8 mx-auto max-w-lg">
+          <p className="text-gray-700 text-sm mb-4 text-center">
             I'm Fernando Garza—a developer and designer who loves turning ideas into meaningful digital experiences. I enjoy working across the stack, live in dark mode, and break things just to learn how to fix them better.
           </p>
           <div className="mt-2">
-            <span className="dancing-script-signature text-4xl text-gray-700">Fernando Garza</span>
+            <span className="dancing-script-signature text-4xl text-gray-700">
+              Fernando Garza
+            </span>
           </div>
         </div>
       </header>
@@ -86,7 +88,7 @@ export default function Portfolio() {
           <div className="space-y-8">
             {projects.filter((_, i) => i % 2 === 0).map((project) => (
               <div key={project.id} className="mb-6">
-                <div className="bg-white rounded-lg overflow-hidden shadow-md">
+                <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
                       <img
@@ -94,11 +96,13 @@ export default function Portfolio() {
                         alt={project.title}
                         className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <svg className="w-16 h-16 text-white mb-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                        {/* YouTube logo SVG */}
+                        <svg className="w-16 h-16 text-red-600 mb-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="48" height="48" rx="10" fill="white"/>
+                          <path d="M39.6 16.2C39.3 15.1 38.4 14.2 37.3 13.9C35.1 13.3 24 13.3 24 13.3C24 13.3 12.9 13.3 10.7 13.9C9.6 14.2 8.7 15.1 8.4 16.2C7.8 18.4 7.8 24 7.8 24C7.8 24 7.8 29.6 8.4 31.8C8.7 32.9 9.6 33.8 10.7 34.1C12.9 34.7 24 34.7 24 34.7C24 34.7 35.1 34.7 37.3 34.1C38.4 33.8 39.3 32.9 39.6 31.8C40.2 29.6 40.2 24 40.2 24C40.2 24 40.2 18.4 39.6 16.2ZM20.7 29.1V18.9L29.5 24L20.7 29.1Z" fill="#FF0000"/>
                         </svg>
-                        <span className="text-white font-semibold">Ver video</span>
+                        <span className="text-red-600 font-semibold bg-white bg-opacity-80 rounded px-2 py-1">Ver en YouTube</span>
                       </div>
                     </div>
                   ) : (
@@ -157,7 +161,7 @@ export default function Portfolio() {
           <div className="space-y-8">
             {projects.filter((_, i) => i % 2 === 1).map((project) => (
               <div key={project.id} className="mb-6">
-                <div className="bg-white rounded-lg overflow-hidden shadow-md">
+                <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
                       <img
@@ -165,11 +169,12 @@ export default function Portfolio() {
                         alt={project.title}
                         className="w-full h-48 object-cover transition-transform duration-200 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity">
-                        <svg className="w-16 h-16 text-white mb-2" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z" />
+                      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+                        {/* YouTube logo SVG */}
+                        <svg className="w-16 h-16 text-red-600 mb-2" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="48" height="48" rx="10" fill="white"/>
+                          <path d="M39.6 16.2C39.3 15.1 38.4 14.2 37.3 13.9C35.1 13.3 24 13.3 24 13.3C24 13.3 12.9 13.3 10.7 13.9C9.6 14.2 8.7 15.1 8.4 16.2C7.8 18.4 7.8 24 7.8 24C7.8 24 7.8 29.6 8.4 31.8C8.7 32.9 9.6 33.8 10.7 34.1C12.9 34.7 24 34.7 24 34.7C24 34.7 35.1 34.7 37.3 34.1C38.4 33.8 39.3 32.9 39.6 31.8C40.2 29.6 40.2 24 40.2 24C40.2 24 40.2 18.4 39.6 16.2ZM20.7 29.1V18.9L29.5 24L20.7 29.1Z" fill="#FF0000"/>
                         </svg>
-                        <span className="text-white font-semibold">Ver video</span>
                       </div>
                     </div>
                   ) : (
