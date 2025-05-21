@@ -1,16 +1,17 @@
 "use client";
 
 import React from 'react';
-import Hero from '../components/HeroComponent';
-import { VelocityText as TextComponent } from '../components/TextComponent';
-import {SmoothScrollHero as AboutMeComponent} from '../components/AboutMeComponent';
+import MeComponent from '../components/MeComponent';
+import AboutMeComponent from '../components/AboutMeComponent';
 
 const Home = () => {
   return (
     <div>
-      <Hero />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <MeComponent />
+      </div>
       <AboutMeComponent />
-      <TextComponent/>
+      {/* <TextComponent/> */}
     </div>
   );
 };

@@ -1,0 +1,9 @@
+/* Dancing Script font import from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+
+.dancing-script-signature {
+  font-family: 'Dancing Script', cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
