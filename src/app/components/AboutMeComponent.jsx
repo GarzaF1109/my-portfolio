@@ -1,14 +1,17 @@
 import { useState } from 'react';
 import '../../app/dancing-script.css';
+import AnimatedModal from '../modals/AnimatedModal';
 
 export default function Portfolio() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const projects = [
     {
       id: 1,
-      title: "ReadMe Retirement Video",
-      description: "We created a video to cap our ten-year run, say goodbye, and explain why we're shutting down our creative creation tool.",
-      image: "/api/placeholder/400/225",
-      category: "video"
+      title: "Software Developer at IXSY - BURMA",
+      description: "I worked on digital platforms to monitor servers and support public services in Yucatán using modern web technologies.",
+      image: "/Burma.jpeg",
+      category: "development"
     },
     {
       id: 2,
@@ -55,7 +58,7 @@ export default function Portfolio() {
       id: 7,
       title: "Cat Animation",
       description: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating.",
-      image: "/api/placeholder/400/225",
+      image: "/FirstClassesRobotics.jpg",
       category: "art",
       hasTwitter: true,
       tweetText: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating."
@@ -90,7 +93,12 @@ export default function Portfolio() {
           <div className="space-y-8">
             {projects.filter((_, i) => i % 2 === 0).map((project) => (
               <div key={project.id} className="mb-6">
-                <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                <div
+                  className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+                  // onClick={() => {
+                  //   if (project.id === 3) setModalOpen(true);
+                  // }}
+                >
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
                       {project.image.endsWith('.mp4') ? (
@@ -265,6 +273,7 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
+      <AnimatedModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }
