@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../../app/dancing-script.css';
-import AnimatedModal from '../modals/AnimatedModal';
+import TecdeSoftwareModal from '../modals/TecdeSoftwareModal';
 
 export default function Portfolio() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -95,9 +95,9 @@ export default function Portfolio() {
               <div key={project.id} className="mb-6">
                 <div
                   className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
-                  // onClick={() => {
-                  //   if (project.id === 3) setModalOpen(true);
-                  // }}
+                  onClick={() => {
+                    if (project.id === 3) setModalOpen(true);
+                  }}
                 >
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
@@ -273,7 +273,7 @@ export default function Portfolio() {
           </div>
         </div>
       </div>
-      <AnimatedModal open={modalOpen} onClose={() => setModalOpen(false)} />
+      <TecdeSoftwareModal open={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
   );
 }
