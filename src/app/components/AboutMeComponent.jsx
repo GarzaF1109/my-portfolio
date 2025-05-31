@@ -10,7 +10,7 @@ export default function Portfolio() {
       id: 1,
       title: "Software Developer at IXSY - BURMA",
       description: "I worked on digital platforms to monitor servers and support public services in Yucatán using modern web technologies.",
-      image: "/Burma.jpeg",
+      image: "/Burma/Burma.jpeg",
       category: "development"
     },
     {
@@ -48,29 +48,30 @@ export default function Portfolio() {
     youtubeId: "xosNPL5OVVM",
     videoUrl: "https://www.youtube.com/watch?v=xosNPL5OVVM"
     },
-    {
-      id: 6,
-      title: "Would I Lie To You?",
-      description: "A few years ago, I was in Would I Lie To You? which I was very happy to do. I still get emails asking about the story I told. I get a bunch of clips from YouTube (it's much easier than finding the episode).",
-      image: "/api/placeholder/400/225",
-      category: "video"
-    },
+    // {
+    //   id: 6,
+    //   title: "Would I Lie To You?",
+    //   description: "A few years ago, I was in Would I Lie To You? which I was very happy to do. I still get emails asking about the story I told. I get a bunch of clips from YouTube (it's much easier than finding the episode).",
+    //   image: "/api/placeholder/400/225",
+    //   category: "video"
+    // },
     {
       id: 7,
       title: "FIRST LEGO League Yucatán Robotics Champion",
       description: "Our team proudly secured the championship title at the FIRST LEGO League regional competition in Yucatán, showcasing innovation, teamwork, and engineering excellence.",
       image: "/Robotics.JPG",
-      category: "achievement"
+      category: "achievement",
+      onClickUrl: "https://ruraltv.com.mx/los-ninos-del-agua/"
     },
-    {
-      id: 8,
-      title: "Cat Animation",
-      description: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating.",
-      image: "/FirstClassesRobotics.jpg",
-      category: "art",
-      hasTwitter: true,
-      tweetText: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating."
-    }
+    // {
+    //   id: 8,
+    //   title: "Cat Animation",
+    //   description: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating.",
+    //   image: "/FirstClassesRobotics.jpg",
+    //   category: "art",
+    //   hasTwitter: true,
+    //   tweetText: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating."
+    // }
   ];
 
   return (
@@ -155,7 +156,28 @@ export default function Portfolio() {
                     )
                   )}
                   <div className="p-4">
-                    <h3 className="text-lg font-medium mb-2">{project.title}</h3>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-medium mb-2">
+                        {project.title}
+                      </h3>
+                      {/* Mostrar iconos solo para QuickFlow y Burma */}
+                      {project.id === 3 && (
+                        <span className="flex items-center gap-1 ml-2">
+                          <img src="/TechIcons/JavaScript.jpg" alt="JS" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/React.png" alt="React" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/Tailwindcss.png" alt="Tailwind" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/Firebase.PNG" alt="Firebase" className="w-5 h-5 rounded" />
+                        </span>
+                      )}
+                      {project.id === 1 && (
+                        <span className="flex items-center gap-1 ml-2">
+                          <img src="/TechIcons/Python.PNG" alt="Python" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/PiHPi.PNG" alt="PHP" className="w-7 h-5 rounded" />
+                          <img src="/TechIcons/Laravel.PNG" alt="Laravel" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/PostgreSQL.PNG" alt="PostgreSQL" className="w-5 h-5 rounded" />
+                        </span>
+                      )}
+                    </div>
                     <p className="text-gray-600 text-xs">{project.description}</p>
                   </div>
                   
@@ -245,7 +267,20 @@ export default function Portfolio() {
                     />
                   )}
                   <div className="p-4">
-                    <h3 className="text-lg font-medium mb-2">{project.title}</h3>
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-lg font-medium mb-2">
+                        {project.title}
+                      </h3>
+                      {/* Mostrar iconos solo para QuickFlow */}
+                      {project.id === 3 && (
+                        <span className="flex items-center gap-1 ml-2">
+                          <img src="/TechIcons/JavaScript.jpg" alt="JS" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/React.png" alt="React" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/Tailwindcss.png" alt="Tailwind" className="w-5 h-5 rounded" />
+                          <img src="/TechIcons/Firebase.PNG" alt="Firebase" className="w-5 h-5 rounded" />
+                        </span>
+                      )}
+                    </div>
                     <p className="text-gray-600 text-xs">{project.description}</p>
                   </div>
                   
