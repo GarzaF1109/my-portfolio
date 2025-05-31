@@ -24,13 +24,21 @@ export default function Portfolio() {
     },
     {
       id: 3,
+      title: "QuickFlow",
+      description: "I built QuickFlow as a personal project: a customizable platform for business operations, online orders, and inventory management.",
+      image: "/QuickFlow/QuickFlow.png",
+      category: "video",
+      onClickUrl: "https://quick-flow-ochre.vercel.app/"
+    },
+    {
+      id: 4,
       title: "The Beginning of a New Journey",
       description: "I recently started my university studies at Tecnológico de Software, pursuing a degree in Software Development — the first step toward building meaningful digital solutions.",
       image: "/University.webp",
       category: "talks"
     },
     {
-    id: 4,
+    id: 5,
     title: 'National Geographic "Slingshot Challenge" | ¿A quién le importa el agua?',
     description: "A look at National Geographic's Slingshot Challenge, where young people propose creative solutions to environmental problems.",
     image: "/NationalGeographic.mp4", 
@@ -41,21 +49,21 @@ export default function Portfolio() {
     videoUrl: "https://www.youtube.com/watch?v=xosNPL5OVVM"
     },
     {
-      id: 5,
+      id: 6,
       title: "Would I Lie To You?",
       description: "A few years ago, I was in Would I Lie To You? which I was very happy to do. I still get emails asking about the story I told. I get a bunch of clips from YouTube (it's much easier than finding the episode).",
       image: "/api/placeholder/400/225",
       category: "video"
     },
     {
-      id: 6,
+      id: 7,
       title: "FIRST LEGO League Yucatán Robotics Champion",
       description: "Our team proudly secured the championship title at the FIRST LEGO League regional competition in Yucatán, showcasing innovation, teamwork, and engineering excellence.",
       image: "/Robotics.JPG",
       category: "achievement"
     },
     {
-      id: 7,
+      id: 8,
       title: "Cat Animation",
       description: "Working with animations is just about something that I've tried to bring into every single product and experience I've been involved in creating.",
       image: "/FirstClassesRobotics.jpg",
@@ -96,7 +104,8 @@ export default function Portfolio() {
                 <div
                   className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
                   onClick={() => {
-                    if (project.id === 3) setModalOpen(true);
+                    if (project.id === 4) setModalOpen(true);
+                    if (project.onClickUrl) window.open(project.onClickUrl, '_blank');
                   }}
                 >
                   {project.youtubeId ? (
@@ -124,7 +133,6 @@ export default function Portfolio() {
                           <rect width="48" height="48" rx="10" fill="white"/>
                           <path d="M39.6 16.2C39.3 15.1 38.4 14.2 37.3 13.9C35.1 13.3 24 13.3 24 13.3C24 13.3 12.9 13.3 10.7 13.9C9.6 14.2 8.7 15.1 8.4 16.2C7.8 18.4 7.8 24 7.8 24C7.8 24 7.8 29.6 8.4 31.8C8.7 32.9 9.6 33.8 10.7 34.1C12.9 34.7 24 34.7 24 34.7C24 34.7 35.1 34.7 37.3 34.1C38.4 33.8 39.3 32.9 39.6 31.8C40.2 29.6 40.2 24 40.2 24C40.2 24 40.2 18.4 39.6 16.2ZM20.7 29.1V18.9L29.5 24L20.7 29.1Z" fill="#FF0000"/>
                         </svg>
-                        <span className="text-red-600 font-semibold bg-white bg-opacity-80 rounded px-2 py-1">Ver en YouTube</span>
                       </div>
                     </div>
                   ) : (
@@ -195,7 +203,13 @@ export default function Portfolio() {
           <div className="space-y-8">
             {projects.filter((_, i) => i % 2 === 1).map((project) => (
               <div key={project.id} className="mb-6">
-                <div className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+                <div
+                  className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+                  onClick={() => {
+                    if (project.id === 4) setModalOpen(true);
+                    if (project.onClickUrl) window.open(project.onClickUrl, '_blank');
+                  }}
+                >
                   {project.youtubeId ? (
                     <div className="relative group cursor-pointer" onClick={() => window.open(`https://youtu.be/${project.youtubeId}`, '_blank')}>
                       {project.image.endsWith('.mp4') ? (
