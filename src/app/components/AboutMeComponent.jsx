@@ -51,7 +51,7 @@ export default function Portfolio() {
       techIcons: [
         { src: "/TechIcons/JavaScript.jpg", alt: "JS", className: "w-5 h-5" },
         { src: "/TechIcons/React.png", alt: "React", className: "w-5 h-5" },
-        { src: "/TechIcons/Tailwindcss.png", alt: "Tailwind", className: "w-6 h-5" },
+        { src: "/TechIcons/Tailwindcss.PNG", alt: "Tailwind", className: "w-6 h-5" },
         { src: "/TechIcons/Firebase.PNG", alt: "Firebase", className: "w-5 h-5" }
       ]
     },
