@@ -34,8 +34,8 @@ const MeComponent = () => {
         <HeroImage 
           draggable="false" 
           style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
-          onTelephoneClick={handleOpenContactsModal} // This prop will trigger the modal
-          onRubiksClick={handleOpenSkillsModal} // This prop will trigger the skills modal
+          onTelephoneClick={handleOpenContactsModal}
+          onRubiksClick={handleOpenSkillsModal} 
         />
       </div>
       <style>{`

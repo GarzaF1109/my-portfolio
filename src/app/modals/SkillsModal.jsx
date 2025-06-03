@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function SkillsModal({ open = true, onClose = () => {} }) {
-  if (!open) return null;
+  const [isOpen, setIsOpen] = useState(open);
+  const [shouldRender, setShouldRender] = useState(open);
+
+  useEffect(() => {
+    if (open) {
+      setShouldRender(true);
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+      // Give time for the exit animation to complete before unmounting
+      const timeoutId = setTimeout(() => setShouldRender(false), 300); // Duration of fadeOut and slideOut classes
+      return () => clearTimeout(timeoutId);
+    }
+  }, [open]);
+
+  if (!shouldRender) return null;
 
   const skills = [
     {
@@ -17,10 +32,10 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
       color: "from-yellow-400 to-orange-500"
     },
     {
-      name: "Node.js",
-      description: "Server-side development and API creation",
-      icon: "🟢",
-      color: "from-green-400 to-emerald-500"
+      name: "Next.js", // CAMBIADO de Node.js
+      description: "Building server-rendered React applications with Next.js", // Descripción actualizada
+      icon: "⚡", // Icono actualizado (puedes cambiarlo si prefieres otro)
+      color: "from-gray-800 to-black" // Color actualizado
     },
     {
       name: "Python",
@@ -41,10 +56,10 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
       color: "from-orange-400 to-red-500"
     },
     {
-      name: "Docker",
-      description: "Containerization and deployment strategies",
-      icon: "🐳",
-      color: "from-blue-400 to-blue-600"
+      name: "Vue.js", // CAMBIADO de Docker
+      description: "Crafting elegant and responsive UIs with Vuetify", // Descripción actualizada
+      icon: "📐", // Icono actualizado (puedes cambiarlo si prefieres otro)
+      color: "from-blue-600 to-cyan-700" // Color actualizado
     },
     {
       name: "AWS",
@@ -71,18 +86,29 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
       color: "from-purple-400 to-pink-500"
     },
     {
-      name: "GraphQL",
-      description: "Efficient API queries and data management",
-      icon: "🔺",
-      color: "from-pink-400 to-rose-500"
+      name: "Firebase", // CAMBIADO de GraphQL
+      description: "Backend services for web and mobile applications", // Descripción actualizada
+      icon: "🔥", // Icono actualizado (puedes cambiarlo si prefieres otro)
+      color: "from-orange-500 to-amber-600" // Color actualizado
     }
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-60 transition-all duration-300 animate-fadeIn">
-      <div 
-        className="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 rounded-2xl shadow-2xl relative overflow-hidden transform transition-all duration-500 animate-modalIn border border-white/20"
+    <div
+      className={`
+        fixed inset-0 z-50 flex items-center justify-center bg-opacity-60 transition-all duration-300
+        ${isOpen ? 'bg-black/50 animate-fadeIn' : 'bg-transparent animate-fadeOut'}
+      `}
+      onClick={onClose}
+    >
+      <div
+        className={`
+          bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 rounded-2xl shadow-2xl relative overflow-hidden
+          transform transition-all duration-300 border border-white/20
+          ${isOpen ? 'scale-100 opacity-100 animate-modalIn' : 'scale-95 opacity-0 animate-modalOut'}
+        `}
         style={{ width: '90vw', height: 'auto', maxWidth: '900px', maxHeight: '85vh' }}
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -top-10 -right-10 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-indigo-300/30 rounded-full blur-xl"></div>
@@ -111,17 +137,17 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
           {/* Skills Grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {skills.map((skill, index) => (
-              <div 
+              <div
                 key={index}
                 className="group relative bg-white/70 backdrop-blur-sm rounded-lg p-3 shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-1 border border-white/50 hover:border-blue-200"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${skill.color.replace('from-', 'from-').replace('to-', 'to-')}/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200`}></div>
-                
+
                 <div className="relative z-10 flex items-center space-x-2">
                   <div className={`w-8 h-8 bg-gradient-to-br ${skill.color} rounded-md flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200 flex-shrink-0`}>
                     <span className="text-sm">{skill.icon}</span>
                   </div>
-                  
+
                   <div className="flex-1 min-w-0">
                     <h3 className="text-sm font-bold text-gray-800 truncate">
                       {skill.name}
@@ -150,23 +176,47 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
             to { opacity: 1; }
           }
           
+          @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+          }
+          
           @keyframes modalIn {
-            from { 
-              opacity: 0; 
-              transform: scale(0.85) translateY(-30px); 
+            from {
+              opacity: 0;
+              transform: scale(0.85) translateY(-30px);
             }
-            to { 
-              opacity: 1; 
-              transform: scale(1) translateY(0); 
+            to {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+          }
+          
+          @keyframes modalOut {
+            from {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+            to {
+              opacity: 0;
+              transform: scale(0.95) translateY(-10px); /* Slightly move up and shrink */
             }
           }
           
           .animate-fadeIn {
-            animation: fadeIn 0.4s ease-out;
+            animation: fadeIn 0.3s ease-out forwards;
+          }
+          
+          .animate-fadeOut {
+            animation: fadeOut 0.3s ease-out forwards;
           }
           
           .animate-modalIn {
-            animation: modalIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+          }
+          
+          .animate-modalOut {
+            animation: modalOut 0.3s ease-in forwards;
           }
         `}</style>
       </div>
