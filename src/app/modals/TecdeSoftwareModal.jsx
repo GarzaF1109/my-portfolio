@@ -130,9 +130,16 @@ export default function AnimatedModal({ open = true, onClose = () => {} }) {
 
         {/* Título */}
         <div className="absolute top-0 left-0 right-0 z-40 bg-white bg-opacity-95 py-4 shadow-sm">
-          <h2 className="text-2xl font-bold text-gray-800 text-center">
-            My Life at the "Tecnológico de Software"
-          </h2>
+          <div className="flex items-center justify-center gap-4">
+            <img 
+              src="/University/LogoTec.PNG" 
+              alt="Tec Logo" 
+              className="h-10 w-10"
+            />
+            <h2 className="text-2xl font-bold text-gray-800 text-center">
+              My Life at the "Tecnológico de Software"
+            </h2>
+          </div>
         </div>
 
         <div className="absolute inset-0 opacity-5">

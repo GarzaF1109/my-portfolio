@@ -1,11 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
 import HeroImage from './HeroImage';
+import ContactsModal from '../modals/ContactMeModal';
+import SkillsModal from '../modals/SkillsModal';
 
 const MeComponent = () => {
+  // State to control the visibility of the ContactsModal
+  const [isContactsModalOpen, setIsContactsModalOpen] = useState(false);
+  const [isSkillsModalOpen, setIsSkillsModalOpen] = useState(false);
+
+
+  // Function to open the ContactsModal
+  const handleOpenSkillsModal = () => {
+    setIsSkillsModalOpen(true);
+  };
+
+  // Function to close the ContactsModal
+  const handleCloseSkillsModal = () => {
+    setIsSkillsModalOpen(false);
+  };
+
+  const handleOpenContactsModal = () => {
+    setIsContactsModalOpen(true);
+  };
+
+  const handleCloseContactsModal = () => {
+    setIsContactsModalOpen(false);
+  };
+
   return (
     <div style={{ width: '100%', height: '100%', maxWidth: '940px', maxHeight: '86vh', minWidth: '220px', minHeight: '220px', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="hero-image-svg" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <HeroImage draggable="false" style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} />
+        {/* Pass the click handler to HeroImage */}
+        <HeroImage 
+          draggable="false" 
+          style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
+          onTelephoneClick={handleOpenContactsModal} // This prop will trigger the modal
+          onRubiksClick={handleOpenSkillsModal} // This prop will trigger the skills modal
+        />
       </div>
       <style>{`
         .hero-image-svg {
@@ -310,6 +341,14 @@ const MeComponent = () => {
           pointer-events: auto;
         }
       `}</style>
+      <ContactsModal 
+        open={isContactsModalOpen} 
+        onClose={handleCloseContactsModal} 
+      />
+      <SkillsModal 
+        open={isSkillsModalOpen} 
+        onClose={handleCloseSkillsModal} 
+      />
     </div>
   );
 };

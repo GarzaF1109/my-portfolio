@@ -1,5 +1,6 @@
 import * as React from "react";
-const HeroImage = (props) => (
+
+const HeroImage = ({ onTelephoneClick, onRubiksClick, ...props }) => (
   <svg
     width="100%"
     height="100%"
@@ -3242,6 +3243,8 @@ const HeroImage = (props) => (
         id="telephone1"
         data-id="telephone"
         transform="matrix(0.9855,0,0,0.986937,55.5638,164.203)"
+        onClick={onTelephoneClick} 
+        style={{ cursor: 'pointer' }} 
       >
         <g transform="matrix(1,0,0,1,0.872911,-7.43592)">
           <path
@@ -3413,6 +3416,8 @@ const HeroImage = (props) => (
         id="rubiks1"
         data-id="rubiks"
         transform="matrix(1.08898,0,0,1.09057,-526.516,183.037)"
+        onClick={onRubiksClick} 
+        style={{ cursor: 'pointer' }} 
       >
         <g transform="matrix(0.918289,0,0,0.916952,561.151,-190.873)">
           <path
