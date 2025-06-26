@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const HeroImage = ({ onTelephoneClick, onRubiksClick, ...props }) => (
+const HeroImage = ({ onTelephoneClick, onRubiksClick, onPortfolioClick, ...props }) => (
   <svg
     width="100%"
     height="100%"
@@ -3006,6 +3006,8 @@ const HeroImage = ({ onTelephoneClick, onRubiksClick, ...props }) => (
         id="portfolio1"
         data-id="portfolio"
         transform="matrix(1.08898,0,0,1.09057,-135.304,133.385)"
+        onClick={onPortfolioClick}
+        style={{ cursor: 'pointer' }}
       >
         <g
           id="paper1"
@@ -4717,7 +4719,7 @@ const HeroImage = ({ onTelephoneClick, onRubiksClick, ...props }) => (
               fontSize: "43.297px",
             }}
           >
-            {"about me"}
+            {"download my CV"}
           </text>
         </g>
         {/* <g

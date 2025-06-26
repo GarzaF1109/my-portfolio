@@ -9,22 +9,31 @@ const MeComponent = () => {
   const [isSkillsModalOpen, setIsSkillsModalOpen] = useState(false);
 
 
-  // Function to open the ContactsModal
+  // Function to open and close the SkillsModal
   const handleOpenSkillsModal = () => {
     setIsSkillsModalOpen(true);
   };
 
-  // Function to close the ContactsModal
   const handleCloseSkillsModal = () => {
     setIsSkillsModalOpen(false);
   };
 
+  // Function to open and close the ContactsModal
   const handleOpenContactsModal = () => {
     setIsContactsModalOpen(true);
   };
 
   const handleCloseContactsModal = () => {
     setIsContactsModalOpen(false);
+  };
+
+  // Function to download the CV
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/CV/CV_GarzaF.pdf';
+    link.download = 'CV_GarzaF.pdf'; 
+    link.click();
+    window.open('/CV/CV_GarzaF.pdf', '_blank');
   };
 
   return (
@@ -36,6 +45,7 @@ const MeComponent = () => {
           style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
           onTelephoneClick={handleOpenContactsModal}
           onRubiksClick={handleOpenSkillsModal} 
+          onPortfolioClick={handleDownloadCV}
         />
       </div>
       <style>{`
