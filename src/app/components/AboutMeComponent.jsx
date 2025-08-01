@@ -178,7 +178,6 @@ export default function Portfolio() {
           <div className="space-y-8">
             {projects.filter((_, i) => i % 2 === 0).map(renderProject)}
           </div>
-          <div className="hidden md:block absolute left-1/2 top-64 bottom-20 w-px bg-gray-200"></div>
           <div className="space-y-8">
             {projects.filter((_, i) => i % 2 === 1).map(renderProject)}
           </div>

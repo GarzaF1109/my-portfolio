@@ -22,73 +22,73 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
     {
       name: "React",
       description: "Building dynamic user interfaces with modern React patterns",
-      icon: "⚛️",
+      icon: "/TechIcons/React.png",
       color: "from-blue-400 to-cyan-500"
     },
     {
       name: "JavaScript",
       description: "Full-stack development with ES6+ features",
-      icon: "🟨",
+      icon: "/TechIcons/JavaScript.jpg",
       color: "from-yellow-400 to-orange-500"
     },
     {
       name: "Next.js", // CAMBIADO de Node.js
       description: "Building server-rendered React applications with Next.js", // Descripción actualizada
-      icon: "⚡", // Icono actualizado (puedes cambiarlo si prefieres otro)
+      icon: "/TechIcons/Next.PNG", // Icono actualizado (puedes cambiarlo si prefieres otro)
       color: "from-gray-800 to-black" // Color actualizado
     },
     {
       name: "Python",
       description: "Data analysis, automation, and backend development",
-      icon: "🐍",
+      icon: "/TechIcons/Python.PNG",
       color: "from-blue-500 to-indigo-600"
     },
     {
       name: "SQL",
       description: "Database design and complex query optimization",
-      icon: "🗄️",
+      icon: "/TechIcons/PostgreSQL.PNG",
       color: "from-gray-500 to-slate-600"
     },
     {
       name: "Git",
       description: "Version control and collaborative development",
-      icon: "📝",
+      icon: "/TechIcons/Git.PNG",
       color: "from-orange-400 to-red-500"
     },
     {
       name: "Vue.js", // CAMBIADO de Docker
       description: "Crafting elegant and responsive UIs with Vuetify", // Descripción actualizada
-      icon: "📐", // Icono actualizado (puedes cambiarlo si prefieres otro)
+      icon: "/TechIcons/Vue.PNG", // Icono actualizado (puedes cambiarlo si prefieres otro)
       color: "from-blue-600 to-cyan-700" // Color actualizado
     },
     {
       name: "AWS",
       description: "Cloud infrastructure and serverless architectures",
-      icon: "☁️",
+      icon: "/TechIcons/AWS.png",
       color: "from-orange-400 to-yellow-500"
     },
     {
       name: "MongoDB",
       description: "NoSQL database design and management",
-      icon: "🍃",
+      icon: "/TechIcons/MongoDB.png",
       color: "from-green-500 to-teal-600"
     },
     {
       name: "TypeScript",
       description: "Type-safe development and scalable applications",
-      icon: "🔷",
+      icon: "/TechIcons/TypeScript.PNG",
       color: "from-blue-600 to-indigo-700"
     },
     {
       name: "CSS/Tailwind",
       description: "Responsive design and modern styling frameworks",
-      icon: "🎨",
+      icon: "/TechIcons/Tailwindcss.PNG",
       color: "from-purple-400 to-pink-500"
     },
     {
       name: "Firebase", // CAMBIADO de GraphQL
       description: "Backend services for web and mobile applications", // Descripción actualizada
-      icon: "🔥", // Icono actualizado (puedes cambiarlo si prefieres otro)
+      icon: "/TechIcons/Firebase.PNG", // Icono actualizado (puedes cambiarlo si prefieres otro)
       color: "from-orange-500 to-amber-600" // Color actualizado
     }
   ];
@@ -144,10 +144,13 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
                 <div className={`absolute inset-0 bg-gradient-to-br ${skill.color.replace('from-', 'from-').replace('to-', 'to-')}/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200`}></div>
 
                 <div className="relative z-10 flex items-center space-x-2">
-                  <div className={`w-8 h-8 bg-gradient-to-br ${skill.color} rounded-md flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200 flex-shrink-0`}>
+                <div className={`w-8 h-8 rounded-md flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-200 flex-shrink-0`}>
+                  {/\.(png|jpe?g|svg)$/i.test(skill.icon) ? (
+                    <img src={skill.icon} alt={skill.name} className="w-6 h-6 object-contain" />
+                  ) : (
                     <span className="text-sm">{skill.icon}</span>
-                  </div>
-
+                  )}
+                </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="text-sm font-bold text-gray-800 truncate">
                       {skill.name}
