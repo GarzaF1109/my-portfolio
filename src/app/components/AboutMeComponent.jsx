@@ -151,7 +151,7 @@ export default function Portfolio() {
           </div>
           <p className="text-gray-600 text-xs">{project.description}</p>
         </div>
-        {project.hasTwitter && renderTwitterSection(project)}
+        {/* {project.hasTwitter && renderTwitterSection(project)} */}
       </div>
     </div>
   );

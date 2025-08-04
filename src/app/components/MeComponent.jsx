@@ -48,6 +48,15 @@ const MeComponent = () => {
     window.open('/CV/CV_GarzaF.pdf', '_blank');
   };
 
+  // Render the component AboutMeComponent
+  
+  const handleAboutMeComponent = () => {
+    const aboutMeElement = document.getElementById('about-me-section');
+    if (aboutMeElement) {
+      aboutMeElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div style={{ width: '100%', height: '100%', maxWidth: '940px', maxHeight: '86vh', minWidth: '220px', minHeight: '220px', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="hero-image-svg" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -59,6 +68,7 @@ const MeComponent = () => {
           onRubiksClick={handleOpenSkillsModal}
           onComputerClick={handleOpenWebStackModal} 
           onPortfolioClick={handleDownloadCV}
+          onBoardClick={handleAboutMeComponent}
         />
       </div>
       <style>{`
@@ -412,6 +422,91 @@ const MeComponent = () => {
           opacity: 1;
           pointer-events: auto;
         }
+          #board1,
+#board_text,
+#board_arrow {
+  opacity: 0;
+  transition: opacity 0.1s;
+  pointer-events: none;
+}
+
+#board {
+  transition: filter 0.15s, transform 0.15s, opacity 0.1s;
+  cursor: pointer;
+  position: relative;
+}
+
+#board, #board1, #board_text, #board_arrow {
+  position: relative;
+}
+
+#board::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  pointer-events: auto;
+  z-index: -1;
+}
+
+#board:hover {
+  filter: drop-shadow(0 0 16px #fffbe6) brightness(1.2);
+  opacity: 0;
+}
+
+#board:hover ~ * #board1,
+#board:hover + * #board1,
+body:has(#board:hover) #board1,
+#board:hover ~ * #board_text,
+#board:hover + * #board_text,
+body:has(#board:hover) #board_text,
+#board:hover ~ * #board_arrow,
+#board:hover + * #board_arrow,
+body:has(#board:hover) #board_arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#board1:hover,
+#board_text:hover,
+#board_arrow:hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body:has(#board1:hover) #board,
+body:has(#board_text:hover) #board,
+body:has(#board_arrow:hover) #board {
+  opacity: 0;
+  filter: drop-shadow(0 0 16px #fffbe6) brightness(1.2);
+}
+
+body:has(#board1:hover) #board1,
+body:has(#board1:hover) #board_text,
+body:has(#board1:hover) #board_arrow,
+body:has(#board_text:hover) #board1,
+body:has(#board_text:hover) #board_text,
+body:has(#board_text:hover) #board_arrow,
+body:has(#board_arrow:hover) #board1,
+body:has(#board_arrow:hover) #board_text,
+body:has(#board_arrow:hover) #board_arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+        // @keyframes idlePulse {
+        //   0%, 100% {
+        //     filter: drop-shadow(0 0 2px #fffbe6) brightness(1);
+        //   }
+        //   50% {
+        //     filter: drop-shadow(0 0 4px #fffbe6) brightness(1.05);
+        //   }
+        // }
+        // #computer {
+        //   animation: idlePulse 3s infinite ease-in-out;
+        // }
       `}</style>
       <ContactsModal 
         open={isContactsModalOpen} 

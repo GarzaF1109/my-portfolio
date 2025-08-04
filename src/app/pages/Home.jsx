@@ -10,7 +10,9 @@ const Home = () => {
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <MeComponent />
       </div>
-      <AboutMeComponent />
+      <div id="about-me-section">
+        <AboutMeComponent />
+      </div>
       {/* <TextComponent/> */}
     </div>
   );
