@@ -2,11 +2,14 @@ import React, { useState } from 'react'; // Import useState
 import HeroImage from './HeroImage';
 import ContactsModal from '../modals/ContactMeModal';
 import SkillsModal from '../modals/SkillsModal';
+import WebStackModal from '../modals/WebStackModal'; 
+
 
 const MeComponent = () => {
   // State to control the visibility of the ContactsModal
   const [isContactsModalOpen, setIsContactsModalOpen] = useState(false);
   const [isSkillsModalOpen, setIsSkillsModalOpen] = useState(false);
+  const [isWebStackModalOpen, setIsWebStackModalOpen] = useState(false);
 
 
   // Function to open and close the SkillsModal
@@ -27,6 +30,15 @@ const MeComponent = () => {
     setIsContactsModalOpen(false);
   };
 
+  // Function to open and close the WebStackModal
+  const handleOpenWebStackModal = () => {
+    setIsWebStackModalOpen(true);
+  };
+  
+  const handleCloseWebStackModal = () => {
+    setIsWebStackModalOpen(false);
+  };
+
   // Function to download the CV
   const handleDownloadCV = () => {
     const link = document.createElement('a');
@@ -44,7 +56,8 @@ const MeComponent = () => {
           draggable="false" 
           style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
           onTelephoneClick={handleOpenContactsModal}
-          onRubiksClick={handleOpenSkillsModal} 
+          onRubiksClick={handleOpenSkillsModal}
+          onComputerClick={handleOpenWebStackModal} 
           onPortfolioClick={handleDownloadCV}
         />
       </div>
@@ -350,6 +363,55 @@ const MeComponent = () => {
           opacity: 1;
           pointer-events: auto;
         }
+          #computer_text,
+        #computer_arrow {
+          opacity: 0;
+          transition: opacity 0.1s;
+          pointer-events: none;
+        }
+        #computer {
+          transition: filter 0.15s, transform 0.15s, opacity 0.1s;
+          cursor: pointer;
+        }
+        #computer, #computer_text, #computer_arrow {
+          position: relative;
+        }
+        #computer::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          pointer-events: auto;
+          z-index: -1;
+        }
+        #computer:hover ~ * #computer_text,
+        #computer:hover + * #computer_text,
+        body:has(#computer:hover) #computer_text,
+        #computer:hover ~ * #computer_arrow,
+        #computer:hover + * #computer_arrow,
+        body:has(#computer:hover) #computer_arrow {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        #computer_text:hover,
+        #computer_arrow:hover {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        body:has(#computer_text:hover) #computer,
+        body:has(#computer_arrow:hover) #computer {
+          opacity: 0;
+          filter: drop-shadow(0 0 16px #fffbe6) brightness(1.2);
+        }
+        body:has(#computer_text:hover) #computer_text,
+        body:has(#computer_text:hover) #computer_arrow,
+        body:has(#computer_arrow:hover) #computer_text,
+        body:has(#computer_arrow:hover) #computer_arrow {
+          opacity: 1;
+          pointer-events: auto;
+        }
       `}</style>
       <ContactsModal 
         open={isContactsModalOpen} 
@@ -358,6 +420,10 @@ const MeComponent = () => {
       <SkillsModal 
         open={isSkillsModalOpen} 
         onClose={handleCloseSkillsModal} 
+      />
+      <WebStackModal 
+        open={isWebStackModalOpen} 
+        onClose={handleCloseWebStackModal}
       />
     </div>
   );

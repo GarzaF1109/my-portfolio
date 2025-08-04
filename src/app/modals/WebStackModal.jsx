@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function SkillsModal({ open = true, onClose = () => {} }) {
+export default function WebStackModal({ open = true, onClose = () => {} }) {
   const [isOpen, setIsOpen] = useState(open);
   const [shouldRender, setShouldRender] = useState(open);
 
@@ -18,80 +18,39 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
 
   if (!shouldRender) return null;
 
-  const skills = [
-    {
-      name: "React",
-      description: "Building dynamic user interfaces with modern React patterns",
-      icon: "/TechIcons/React.png",
-      color: "from-blue-400 to-cyan-500"
-    },
-    {
-      name: "JavaScript",
-      description: "Full-stack development with ES6+ features",
-      icon: "/TechIcons/JavaScript.jpg",
-      color: "from-yellow-400 to-orange-500"
-    },
-    {
-      name: "Next.js", // CAMBIADO de Node.js
-      description: "Building server-rendered React applications with Next.js", // Descripción actualizada
-      icon: "/TechIcons/Next.PNG", // Icono actualizado (puedes cambiarlo si prefieres otro)
-      color: "from-gray-800 to-black" // Color actualizado
-    },
-    {
-      name: "Python",
-      description: "Data analysis, automation, and backend development",
-      icon: "/TechIcons/Python.PNG",
-      color: "from-blue-500 to-indigo-600"
-    },
-    {
-      name: "SQL",
-      description: "Database design and complex query optimization",
-      icon: "/TechIcons/PostgreSQL.PNG",
-      color: "from-gray-500 to-slate-600"
-    },
-    {
-      name: "Git",
-      description: "Version control and collaborative development",
-      icon: "/TechIcons/Git.png",
-      color: "from-orange-400 to-red-500"
-    },
-    {
-      name: "Vue.js", // CAMBIADO de Docker
-      description: "Crafting elegant and responsive UIs with Vuetify", // Descripción actualizada
-      icon: "/TechIcons/Vue.PNG", // Icono actualizado (puedes cambiarlo si prefieres otro)
-      color: "from-blue-600 to-cyan-700" // Color actualizado
-    },
-    {
-      name: "AWS",
-      description: "Cloud infrastructure and serverless architectures",
-      icon: "/TechIcons/AWS.png",
-      color: "from-orange-400 to-yellow-500"
-    },
-    {
-      name: "MongoDB",
-      description: "NoSQL database design and management",
-      icon: "/TechIcons/MongoDB.png",
-      color: "from-green-500 to-teal-600"
-    },
-    {
-      name: "TypeScript",
-      description: "Type-safe development and scalable applications",
-      icon: "/TechIcons/TypeScript.PNG",
-      color: "from-blue-600 to-indigo-700"
-    },
-    {
-      name: "CSS/Tailwind",
-      description: "Responsive design and modern styling frameworks",
-      icon: "/TechIcons/Tailwindcss.PNG",
-      color: "from-purple-400 to-pink-500"
-    },
-    {
-      name: "Firebase", // CAMBIADO de GraphQL
-      description: "Backend services for web and mobile applications", // Descripción actualizada
-      icon: "/TechIcons/Firebase.PNG", // Icono actualizado (puedes cambiarlo si prefieres otro)
-      color: "from-orange-500 to-amber-600" // Color actualizado
-    }
-  ];
+const skills = [
+  {
+    name: "Next.js",
+    description: "React framework for hybrid rendering, routing, and web optimization.",
+    icon: "/TechIcons/Next.PNG",
+    color: "from-gray-800 to-black"
+  },
+  {
+    name: "JavaScript",
+    description: "Main language for interactive logic and dynamic behavior.",
+    icon: "/TechIcons/JavaScript.jpg",
+    color: "from-yellow-400 to-orange-500"
+  },
+  {
+    name: "Tailwind CSS",
+    description: "Utility-first CSS framework for fast styling and responsive design.",
+    icon: "/TechIcons/Tailwindcss.PNG",
+    color: "from-sky-400 to-teal-500"
+  },
+  {
+    name: "HTML5",
+    description: "Semantic structure for web content.",
+    icon: "/TechIcons/Html.png",
+    color: "from-orange-500 to-red-500"
+  },
+  // {
+  //   name: "CSS3",
+  //   description: "Custom styling and visual presentation control.",
+  //   icon: "/TechIcons/Css.png",
+  //   color: "from-blue-500 to-indigo-600"
+  // }
+];
+
 
   return (
     <div
@@ -127,10 +86,10 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
         <div className="relative z-10 p-4 md:p-6 overflow-y-auto" style={{ maxHeight: '85vh' }}>
           <div className="mb-6 text-center">
             <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-1">
-              Technical Skills
+              This website was built with
             </h2>
             <p className="text-gray-600 text-sm md:text-base font-medium">
-              Technologies and tools I work with
+              Tools and technologies used in this project
             </p>
           </div>
 
@@ -167,7 +126,7 @@ export default function SkillsModal({ open = true, onClose = () => {} }) {
           {/* Footer */}
           <div className="mt-6 text-center">
             <p className="text-gray-500 text-xs">
-              Always learning and exploring new technologies
+              Crafted with care and curiosity
             </p>
           </div>
         </div>
