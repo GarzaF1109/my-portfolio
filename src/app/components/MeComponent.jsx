@@ -2,7 +2,8 @@ import React, { useState } from 'react'; // Import useState
 import HeroImage from './HeroImage';
 import ContactsModal from '../modals/ContactMeModal';
 import SkillsModal from '../modals/SkillsModal';
-import WebStackModal from '../modals/WebStackModal'; 
+import WebStackModal from '../modals/WebStackModal';
+import { FaSun, FaMoon } from 'react-icons/fa'; 
 
 
 const MeComponent = () => {
@@ -11,6 +12,21 @@ const MeComponent = () => {
   const [isSkillsModalOpen, setIsSkillsModalOpen] = useState(false);
   const [isWebStackModalOpen, setIsWebStackModalOpen] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleTheme = () => {
+    const isDark = !darkMode;
+    setDarkMode(isDark);
+
+    const root = document.documentElement;
+
+    if (isDark) {
+      root.classList.remove('light');
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+      root.classList.add('light');
+    }
+  };
 
   // Function to open and close the SkillsModal
   const handleOpenSkillsModal = () => {
@@ -59,6 +75,24 @@ const MeComponent = () => {
 
   return (
     <div style={{ width: '100%', height: '100%', maxWidth: '940px', maxHeight: '86vh', minWidth: '220px', minHeight: '220px', margin: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <button 
+        onClick={toggleTheme}
+        style={{
+          position: 'absolute',
+          top: '1rem',
+          right: '1rem',
+          zIndex: 50,
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          fontSize: '1.5rem',
+          color: darkMode ? '#fcd34d' : '#1e3a8a',
+          transition: 'all 0.3s ease-in-out', 
+        }}
+        aria-label="Toggle Theme"
+      >
+        {darkMode ? <FaMoon /> : <FaSun />}
+      </button>
       <div className="hero-image-svg" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* Pass the click handler to HeroImage */}
         <HeroImage 

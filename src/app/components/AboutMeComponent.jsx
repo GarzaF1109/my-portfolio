@@ -146,7 +146,7 @@ export default function Portfolio() {
         {renderMedia(project)}
         <div className="p-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-medium mb-2">{project.title}</h3>
+            <h3 className="text-lg font-medium mb-2 text-gray-700">{project.title}</h3>
             {project.techIcons && renderTechIcons(project.techIcons)}
           </div>
           <p className="text-gray-600 text-xs">{project.description}</p>
@@ -160,11 +160,11 @@ export default function Portfolio() {
     <div className="min-h-screen max-w-4xl mx-auto font-sans">
       <header className="p-6 pt-10 text-center">
         <div className="mb-8 mx-auto max-w-lg">
-          <p className="text-gray-700 text-sm mb-4 text-center">
+          <p className="text-sm mb-4 text-center" style={{ color: 'var(--foreground)' }}>
             I'm Fernando Garza—a developer and designer who loves turning ideas into meaningful digital experiences. I enjoy working across the stack, live in dark mode, and break things just to learn how to fix them better.
           </p>
           <div className="mt-2">
-            <span className="dancing-script-signature text-4xl text-gray-700">Fernando Garza</span>
+            <span className="dancing-script-signature text-4xl" style={{ color: 'var(--foreground)' }}>Fernando Garza</span>
           </div>
         </div>
       </header>

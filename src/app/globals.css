@@ -1,11 +1,43 @@
 @import "tailwindcss";
 @import './dancing-script.css';
 
+/* Valores por defecto si no se especifica modo */
 :root {
-  --background: #fffae5; 
-  --foreground: #171717;
+  --background: #fffae5; /* fondo claro */
+  --foreground: #374151; /* texto gris oscuro */
 }
 
+/* Modo claro explícito */
+.light {
+  --background: #fffae5;
+  --foreground: #374151;
+}
+
+/* Modo oscuro explícito */
+.dark {
+  --background: #0d004be3; /* azul oscuro */
+  --foreground: #f1f5f9; /* blanco suave */
+}
+
+.light svg text {
+  fill: #000; /* negro para modo light en textos SVG */
+}
+
+.dark svg text {
+  fill: var(--foreground); /* blanco suave o lo que tengas en modo dark */
+}
+
+/* Arrows que cambian según el modo */
+
+.light svg g#arrows path {
+  fill: #000; /* negro en modo claro */
+}
+
+.dark svg g#arrows path {
+  fill: var(--foreground); /* blanco suave en modo oscuro */
+}
+
+/* Variables custom para Tailwind (opcional, si usas @theme) */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -13,15 +45,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #fffae5;
-    --foreground: #171717;
-  }
-}
-
+/* Aplicación de estilos globales */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
