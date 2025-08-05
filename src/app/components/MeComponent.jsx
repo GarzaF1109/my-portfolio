@@ -4,6 +4,7 @@ import ContactsModal from '../modals/ContactMeModal';
 import SkillsModal from '../modals/SkillsModal';
 import WebStackModal from '../modals/WebStackModal';
 import { FaSun, FaMoon } from 'react-icons/fa'; 
+import { HeroImage2 } from './HeroImage2';
 
 
 const MeComponent = () => {
@@ -95,7 +96,7 @@ const MeComponent = () => {
       </button>
       <div className="hero-image-svg" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         {/* Pass the click handler to HeroImage */}
-        <HeroImage 
+        <HeroImage2 
           draggable="false" 
           style={{ width: '100%', height: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }} 
           onTelephoneClick={handleOpenContactsModal}
@@ -103,6 +104,7 @@ const MeComponent = () => {
           onComputerClick={handleOpenWebStackModal} 
           onPortfolioClick={handleDownloadCV}
           onBoardClick={handleAboutMeComponent}
+          darkMode={darkMode}
         />
       </div>
       <style>{`
