@@ -17,7 +17,7 @@ export default function Portfolio() {
       techIcons: [
         { src: "/TechIcons/Next.PNG", alt: "Next.js", className: "w-5 h-5" },
         { src: "/TechIcons/TypeScript.PNG", alt: "TypeScript", className: "w-5 h-5" },
-        { src: "/TechIcons/Supabase.PNG", alt: "Supabase", className: "w-5 h-5" }
+        { src: "/TechIcons/Supabase.png", alt: "Supabase", className: "w-5 h-5" }
       ]
     },
     {
@@ -30,7 +30,7 @@ export default function Portfolio() {
       techIcons: [
         { src: "/TechIcons/Python.PNG", alt: "Python", className: "w-5 h-5" },
         { src: "/TechIcons/PostgreSQL.PNG", alt: "PostgreSQL", className: "w-5 h-5" },
-        { src: "/TechIcons/Docker.PNG", alt: "Docker", className: "w-10 h-5" }
+        { src: "/TechIcons/Docker.png", alt: "Docker", className: "w-10 h-5" }
       ]
     },
     {
