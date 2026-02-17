@@ -7,11 +7,39 @@ export default function Portfolio() {
 
   const projects = [
     {
+      id: 8,
+      title: "Creator of MOOWKA",
+      description: "I created Moowka, a link-in-bio SaaS platform that centralizes digital menus, online orders, payments, and local delivery — enabling physical businesses to sell online without marketplace commissions.",
+      image: "/Moowka/Moowka.png",
+      category: "development",
+      year: "2026",
+      onClickUrl: "https://moowka.com",
+      techIcons: [
+        { src: "/TechIcons/Next.PNG", alt: "Next.js", className: "w-5 h-5" },
+        { src: "/TechIcons/TypeScript.PNG", alt: "TypeScript", className: "w-5 h-5" },
+        { src: "/TechIcons/Supabase.PNG", alt: "Supabase", className: "w-5 h-5" }
+      ]
+    },
+    {
+      id: 9,
+      title: "Backend Developer at Aivara",
+      description: "Develop backend solutions and system integrations using Python, SQL, and Docker, building scalable APIs and regulatory-compliant software for the petroleum and hydrocarbons industry.",
+      image: "/Aivara/Aivara.jpg",
+      category: "development",
+      year: "2025",
+      techIcons: [
+        { src: "/TechIcons/Python.PNG", alt: "Python", className: "w-5 h-5" },
+        { src: "/TechIcons/PostgreSQL.PNG", alt: "PostgreSQL", className: "w-5 h-5" },
+        { src: "/TechIcons/Docker.PNG", alt: "Docker", className: "w-10 h-5" }
+      ]
+    },
+    {
       id: 0,
       title: "New York Times Games",
       description: "I recreated some of the classic New York Times games in a simple, fun, and personal version — just for the joy of playing and building!",
       image: "/NotNewYorkTimes/NewYorkTimesGames.png",
       category: "art",
+      year: "2025",
       onClickUrl: "https://not-new-york-times-games.vercel.app/",
       techIcons: [
         { src: "/TechIcons/Next.PNG", alt: "Next.js", className: "w-5 h-5" },
@@ -25,6 +53,7 @@ export default function Portfolio() {
       description: "I worked on digital platforms to monitor servers and support public services in Yucatán using modern web technologies.",
       image: "/Burma/Burma.jpeg",
       category: "development",
+      year: "2024",
       techIcons: [
         { src: "/TechIcons/Python.PNG", alt: "Python", className: "w-5 h-5" },
         { src: "/TechIcons/PiHPi.PNG", alt: "PHP", className: "w-7 h-5" },
@@ -39,6 +68,7 @@ export default function Portfolio() {
       description: "We joined the global innovation challenge Invent for the Planet 2024 and won first place at our school with a creative and impactful solution.",
       image: "/IFTP.mp4",
       category: "development",
+      year: "2024",
       youtubeId: "UmnfDSnSxj0"
     },
     {
@@ -47,6 +77,7 @@ export default function Portfolio() {
       description: "I built QuickFlow as a personal project: a customizable platform for business operations, online orders, and inventory management.",
       image: "/QuickFlow/QuickFlow.png",
       category: "video",
+      year: "2024",
       onClickUrl: "https://quick-flow-ochre.vercel.app/",
       techIcons: [
         { src: "/TechIcons/JavaScript.jpg", alt: "JS", className: "w-5 h-5" },
@@ -60,7 +91,8 @@ export default function Portfolio() {
       title: "The Beginning of a New Journey",
       description: "I recently started my university studies at Tecnológico de Software, pursuing a degree in Software Development — the first step toward building meaningful digital solutions.",
       image: "/University.webp",
-      category: "talks"
+      category: "talks",
+      year: "2023"
     },
     {
       id: 5,
@@ -68,6 +100,7 @@ export default function Portfolio() {
       description: "A look at National Geographic's Slingshot Challenge, where young people propose creative solutions to environmental problems.",
       image: "/NationalGeographic.mp4",
       category: "art",
+      year: "2022",
       hasTwitter: true,
       tweetText: "The blue glow of a developer's workspace that shows the passion for creating & unique features. That's a short look at some of my favorites 💙",
       youtubeId: "xosNPL5OVVM"
@@ -78,6 +111,7 @@ export default function Portfolio() {
       description: "Our team proudly secured the championship title at the FIRST LEGO League regional competition in Yucatán, showcasing innovation, teamwork, and engineering excellence.",
       image: "/Robotics.JPG",
       category: "achievement",
+      year: "2021",
       onClickUrl: "https://ruraltv.com.mx/los-ninos-del-agua/"
     }
   ];

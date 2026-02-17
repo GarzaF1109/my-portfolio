@@ -1,5 +1,4 @@
 import React, { useState } from 'react'; // Import useState
-import HeroImage from './HeroImage';
 import ContactsModal from '../modals/ContactMeModal';
 import SkillsModal from '../modals/SkillsModal';
 import WebStackModal from '../modals/WebStackModal';
