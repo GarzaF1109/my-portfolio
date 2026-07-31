@@ -151,42 +151,50 @@ export default function Portfolio() {
     </span>
   );
 
-  const renderTwitterSection = (project) => (
-    <div className="border-t border-gray-200 p-4">
-      <div className="flex items-start gap-3">
-        <img src="/api/placeholder/40/40" alt="Profile" className="w-8 h-8 rounded-full" />
-        <div>
-          <div className="flex items-center gap-1">
-            <span className="font-medium text-sm">@gkburgess</span>
-            <span className="text-blue-500 text-xs">✓</span>
-          </div>
-          <p className="text-gray-700 text-xs mt-1">{project.tweetText}</p>
-          <div className="flex gap-4 mt-2 text-gray-500 text-xs">
-            {['💬 3', '🔄 12', '❤️ 78'].map((stat, idx) => (
-              <span key={idx} className="flex items-center gap-1">{stat}</span>
-            ))}
-          </div>
+  const renderCardContent = (project) => (
+    <>
+      {renderMedia(project)}
+      <div className="p-4">
+        <div className="flex items-center justify-between">
+          <h3 className={`text-lg mb-2 ${project.id === 8 ? 'font-semibold bg-gradient-to-r from-purple-700 to-pink-600 bg-clip-text text-transparent' : 'font-medium text-gray-700'}`}>{project.title}</h3>
+          {project.techIcons && renderTechIcons(project.techIcons)}
         </div>
+        <p className="text-gray-600 text-xs">{project.description}</p>
       </div>
-    </div>
+    </>
   );
 
   const renderProject = (project) => (
-    <div key={project.id} className="mb-6">
-      <div
-        className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
-        onClick={() => handleProjectClick(project)}
-      >
-        {renderMedia(project)}
-        <div className="p-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-medium mb-2 text-gray-700">{project.title}</h3>
-            {project.techIcons && renderTechIcons(project.techIcons)}
+    <div key={project.id} className={`mb-6 ${project.id === 8 ? 'moowka-card-wrapper' : ''}`}>
+      {project.id === 8 ? (
+        <div className="relative group">
+          <div className="absolute -inset-[2px] rounded-xl bg-gradient-to-r from-purple-500 via-pink-500 via-orange-400 to-purple-500 bg-[length:300%_100%] animate-gradient-border opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute -inset-[2px] rounded-xl overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
           </div>
-          <p className="text-gray-600 text-xs">{project.description}</p>
+          <div
+            className="relative bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
+            onClick={() => handleProjectClick(project)}
+          >
+            <div className="absolute top-3 left-3 z-20">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r from-purple-600 to-pink-500 shadow-lg shadow-purple-500/30">
+                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                My First SaaS
+              </span>
+            </div>
+            {renderCardContent(project)}
+          </div>
         </div>
-        {/* {project.hasTwitter && renderTwitterSection(project)} */}
-      </div>
+      ) : (
+        <div
+          className="bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer"
+          onClick={() => handleProjectClick(project)}
+        >
+          {renderCardContent(project)}
+        </div>
+      )}
     </div>
   );
 
@@ -218,6 +226,30 @@ export default function Portfolio() {
         </div>
       </div>
       <TecdeSoftwareModal open={modalOpen} onClose={() => setModalOpen(false)} />
+
+      <style>{`
+        @keyframes gradient-border {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes shimmer {
+          0% { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
+        }
+        .animate-gradient-border {
+          animation: gradient-border 3s ease infinite;
+        }
+        .animate-shimmer {
+          animation: shimmer 2.5s ease-in-out infinite;
+        }
+        .moowka-card-wrapper {
+          filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.15));
+        }
+        .moowka-card-wrapper:hover {
+          filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.3));
+        }
+      `}</style>
     </div>
   );
 }
