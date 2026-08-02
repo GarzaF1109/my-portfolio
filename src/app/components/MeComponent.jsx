@@ -103,6 +103,7 @@ const MeComponent = () => {
           onComputerClick={handleOpenWebStackModal} 
           onPortfolioClick={handleDownloadCV}
           onBoardClick={handleAboutMeComponent}
+          onWindowClick={toggleTheme}
           darkMode={darkMode}
         />
       </div>
@@ -454,6 +455,46 @@ const MeComponent = () => {
         body:has(#computer_text:hover) #computer_arrow,
         body:has(#computer_arrow:hover) #computer_text,
         body:has(#computer_arrow:hover) #computer_arrow {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        #window1 {
+          opacity: 0;
+          transition: opacity 0.1s;
+          pointer-events: none;
+        }
+        #window {
+          transition: filter 0.15s, transform 0.15s, opacity 0.1s;
+          cursor: pointer;
+          position: relative;
+        }
+        #window::before {
+          content: '';
+          position: absolute;
+          top: -10px;
+          left: -10px;
+          right: -10px;
+          bottom: -10px;
+          pointer-events: auto;
+          z-index: -1;
+        }
+        #window:hover {
+          filter: drop-shadow(0 0 16px #fffbe6) brightness(1.2);
+          opacity: 0;
+        }
+        body:has(#window:hover) #window1 {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        #window1:hover {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        body:has(#window1:hover) #window {
+          opacity: 0;
+          filter: drop-shadow(0 0 16px #fffbe6) brightness(1.2);
+        }
+        body:has(#window1:hover) #window1 {
           opacity: 1;
           pointer-events: auto;
         }
